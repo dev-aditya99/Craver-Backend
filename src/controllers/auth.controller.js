@@ -32,7 +32,9 @@ async function registerUser(req, res) {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         }
 
         res.status(201).cookie("token", token, options).json({
@@ -73,7 +75,9 @@ async function loginUser(req, res) {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         }
 
         res.status(200).cookie("token", token, options).json({
@@ -127,7 +131,9 @@ async function registerFoodPartner(req, res) {
         const token = jwt.sign({ foodPartnerId: foodPartner._id }, process.env.JWT_SECRET);
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         }
 
         res.status(201).cookie("token", token, options).json({
@@ -171,7 +177,9 @@ async function loginFoodPartner(req, res) {
         const token = await jwt.sign({ foodPartnerId: foodPartner._id }, process.env.JWT_SECRET);
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         }
 
         res.status(200).cookie("token", token, options).json({
