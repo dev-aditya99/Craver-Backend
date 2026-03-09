@@ -2,7 +2,6 @@
 
 Is file ko apne **Backend** folder ke root me `README.md` naam se save karein.
 
-````md
 <div align="center">
   <h1>🍔 Craver - Backend API </h1>
   <p><strong>The robust RESTful API and server architecture powering Craver.</strong></p>
@@ -42,4 +41,7 @@ This repository contains the backend server for **Craver**, a social food delive
    git clone [https://github.com/dev-aditya99/craver-backend.git](https://github.com/dev-aditya99/craver-backend.git)
    cd craver-backend
    ```
-````
+
+```
+
+```
