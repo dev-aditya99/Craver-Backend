@@ -2,6 +2,7 @@ const userModel = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const foodPartnerModel = require('../models/foodPartner.model');
+const { v4: uuiidv4 } = require('uuid');
 
 // Auth User Controller
 // Register User 
@@ -24,7 +25,8 @@ async function registerUser(req, res) {
         const user = await userModel.create({
             fullName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            username: fullName + "_" + uuiidv4()
         })
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
@@ -37,7 +39,8 @@ async function registerUser(req, res) {
             message: "User registered successfully", user: {
                 id: user._id,
                 fullName: user.fullName,
-                email: user.email
+                email: user.email,
+                username: user.username
             }
         });
 
